@@ -1189,6 +1189,10 @@ CompareEncryptedContextFields(
         if ((ULONG64)CompareFields == (ULONG64)PatchGuardBlock->CompareFields) {
             break;
         }
+        
+        if( MmIsAddressValid(CompareFields) == FALSE) {
+        	break;
+        }
 
         RorKey = CompareFields[3] ^ PatchGuardBlock->CompareFields[3];
 
