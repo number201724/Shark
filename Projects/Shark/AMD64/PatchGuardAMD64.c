@@ -258,7 +258,7 @@ InitializePatchGuardBlock(
         "Shark - PatchGuard declassified context cleared\n";
 
 #ifndef VMP
-    DbgPrint(
+    Log(
         "Shark - < %p > PatchGuard clear context PatchGuardBlock\n",
         PatchGuardBlock);
 #endif // !VMP
@@ -354,7 +354,7 @@ InitializePatchGuardBlock(
                                         PatchGuardBlock->SizeOfCmpAppendDllSection = *(PULONG)(TargetPc + 4);
 
 #ifndef VMP
-                                        DbgPrint(
+                                        Log(
                                             "Shark - < %p > PatchGuard clear context SizeOfCmpAppendDllSection\n",
                                             PatchGuardBlock->SizeOfCmpAppendDllSection);
 #endif // !VMP
@@ -366,7 +366,7 @@ InitializePatchGuardBlock(
                                             PatchGuardBlock->IsBtcEncryptedEnable = TRUE;
 
 #ifndef VMP
-                                            DbgPrint(
+                                            Log(
                                                 "Shark - < %p > PatchGuard clear context IsBtcEncryptedEnable\n",
                                                 PatchGuardBlock->IsBtcEncryptedEnable);
 #endif // !VMP
@@ -381,7 +381,7 @@ InitializePatchGuardBlock(
                                     PatchGuardBlock->RvaOffsetOfEntry = *(PULONG)(TargetPc + 2);
 
 #ifndef VMP
-                                    DbgPrint(
+                                    Log(
                                         "Shark - < %p > PatchGuard clear context RvaOffsetOfEntry\n",
                                         PatchGuardBlock->RvaOffsetOfEntry);
 #endif // !VMP
@@ -412,7 +412,7 @@ InitializePatchGuardBlock(
                                     (ULONG64)RvaToVa(TargetPc - 4) + Diff;
 
 #ifndef VMP
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context CompareFields[0]\n",
                                     PatchGuardBlock->CompareFields[0]);
 #endif // !VMP
@@ -421,7 +421,7 @@ InitializePatchGuardBlock(
                                     (ULONG64)RvaToVa(TargetPc + 10) + Diff;
 
 #ifndef VMP
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context CompareFields[1]\n",
                                     PatchGuardBlock->CompareFields[1]);
 #endif // !VMP
@@ -430,7 +430,7 @@ InitializePatchGuardBlock(
                                     (ULONG64)RvaToVa(TargetPc + 24) + Diff;
 
 #ifndef VMP
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context CompareFields[2]\n",
                                     PatchGuardBlock->CompareFields[2]);
 #endif // !VMP
@@ -439,7 +439,7 @@ InitializePatchGuardBlock(
                                     (ULONG64)RvaToVa(TargetPc + 38) + Diff;
 
 #ifndef VMP
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context CompareFields[3]\n",
                                     PatchGuardBlock->CompareFields[3]);
 #endif // !VMP
@@ -470,7 +470,7 @@ InitializePatchGuardBlock(
                                 NtSection->Misc.VirtualSize);
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context SizeOfNtSection\n",
                                 PatchGuardBlock->SizeOfNtSection);
 #endif // !VMP
@@ -487,7 +487,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->KiStartSystemThread = (PVOID)(TargetPc + Diff);
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context KiStartSystemThread\n",
                             PatchGuardBlock->KiStartSystemThread);
 #endif // !VMP
@@ -512,7 +512,7 @@ InitializePatchGuardBlock(
                                 ((PCHAR)PatchGuardBlock->KernelDataTableEntry->DllBase + FunctionEntry->BeginAddress);
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PspSystemThreadStartup\n",
                                 PatchGuardBlock->PspSystemThreadStartup);
 #endif // !VMP
@@ -530,7 +530,7 @@ InitializePatchGuardBlock(
                             PatchGuardBlock->PteBase = *(PMMPTE *)(TargetPc + 19);
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PteBase\n",
                                 PatchGuardBlock->PteBase);
 #endif // !VMP
@@ -541,7 +541,7 @@ InitializePatchGuardBlock(
                                     >> PTI_SHIFT) << PTE_SHIFT) - 1));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PteTop\n",
                                 PatchGuardBlock->PteTop);
 #endif // !VMP
@@ -553,7 +553,7 @@ InitializePatchGuardBlock(
                                     ((LONGLONG)1 << PHYSICAL_ADDRESS_BITS) - 1)));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PdeBase\n",
                                 PatchGuardBlock->PdeBase);
 #endif // !VMP
@@ -564,7 +564,7 @@ InitializePatchGuardBlock(
                                     1)) >> PDI_SHIFT) << PTE_SHIFT) - 1));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PdeTop\n",
                                 PatchGuardBlock->PdeTop);
 #endif // !VMP
@@ -576,7 +576,7 @@ InitializePatchGuardBlock(
                                     ((LONGLONG)1 << PHYSICAL_ADDRESS_BITS) - 1)));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PpeBase\n",
                                 PatchGuardBlock->PpeBase);
 #endif // !VMP
@@ -587,7 +587,7 @@ InitializePatchGuardBlock(
                                     1)) >> PPI_SHIFT) << PTE_SHIFT) - 1));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PpeTop\n",
                                 PatchGuardBlock->PpeTop);
 #endif // !VMP
@@ -599,7 +599,7 @@ InitializePatchGuardBlock(
                                     ((LONGLONG)1 << PHYSICAL_ADDRESS_BITS) - 1)));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PxeBase\n",
                                 PatchGuardBlock->PxeBase);
 #endif // !VMP
@@ -610,7 +610,7 @@ InitializePatchGuardBlock(
                                     1)) >> PXI_SHIFT) << PTE_SHIFT) - 1));
 
 #ifndef VMP
-                            DbgPrint(
+                            Log(
                                 "Shark - < %p > PatchGuard clear context PxeTop\n",
                                 PatchGuardBlock->PxeTop);
 #endif // !VMP
@@ -618,10 +618,14 @@ InitializePatchGuardBlock(
                         }
                     }
                     else {
+
+						Log(
+							"Using Defaule PTE Address\n" );
+
                         PatchGuardBlock->PteBase = (PMMPTE)PTE_BASE;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PteBase\n",
                             PatchGuardBlock->PteBase);
 #endif // !VMP
@@ -629,7 +633,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PteTop = (PMMPTE)PTE_TOP;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PteTop\n",
                             PatchGuardBlock->PteTop);
 #endif // !VMP
@@ -637,7 +641,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PdeBase = (PMMPTE)PDE_BASE;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PdeBase\n",
                             PatchGuardBlock->PdeBase);
 #endif // !VMP
@@ -645,7 +649,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PdeTop = (PMMPTE)PDE_TOP;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PdeTop\n",
                             PatchGuardBlock->PdeTop);
 #endif // !VMP
@@ -653,7 +657,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PpeBase = (PMMPTE)PPE_BASE;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PpeBase\n",
                             PatchGuardBlock->PpeBase);
 #endif // !VMP
@@ -661,7 +665,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PpeTop = (PMMPTE)PPE_TOP;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PpeTop\n",
                             PatchGuardBlock->PpeTop);
 #endif // !VMP
@@ -669,7 +673,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PxeBase = (PMMPTE)PXE_BASE;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PxeBase\n",
                             PatchGuardBlock->PxeBase);
 #endif // !VMP
@@ -677,7 +681,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->PxeTop = (PMMPTE)PXE_TOP;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context PxeTop\n",
                             PatchGuardBlock->PxeTop);
 #endif // !VMP
@@ -725,7 +729,7 @@ InitializePatchGuardBlock(
                             sizeof(PVOID));
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context MmDeterminePoolType\n",
                             PatchGuardBlock->MmDeterminePoolType);
 #endif // !VMP
@@ -792,15 +796,15 @@ InitializePatchGuardBlock(
                                 }
 
 #ifndef VMP
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context PoolBigPageTable\n",
                                     PatchGuardBlock->PoolBigPageTable);
 
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context PoolBigPageTableSize\n",
                                     PatchGuardBlock->PoolBigPageTableSize);
 
-                                DbgPrint(
+                                Log(
                                     "Shark - < %p > PatchGuard clear context ExpLargePoolTableLock\n",
                                     PatchGuardBlock->ExpLargePoolTableLock);
 #endif // !VMP
@@ -847,7 +851,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->SystemPtes.BitMap = TargetPc;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context SystemPtes.BitMap\n",
                             PatchGuardBlock->SystemPtes.BitMap);
 #endif // !VMP
@@ -862,7 +866,7 @@ InitializePatchGuardBlock(
                         }
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context SystemPtes.BasePte\n",
                             PatchGuardBlock->SystemPtes.BasePte);
 #endif // !VMP
@@ -899,7 +903,7 @@ InitializePatchGuardBlock(
                         PatchGuardBlock->MmPfnDatabase = *(PMMPFN *)TargetPc;
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > PatchGuard clear context MmPfnDatabase\n",
                             PatchGuardBlock->MmPfnDatabase);
 #endif // !VMP
@@ -918,7 +922,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context MmHighestUserAddress\n",
             PatchGuardBlock->MmHighestUserAddress);
 #endif // !VMP
@@ -929,7 +933,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context MmSystemRangeStart\n",
             PatchGuardBlock->MmSystemRangeStart);
 #endif // !VMP
@@ -940,7 +944,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context IoGetInitialStack\n",
             PatchGuardBlock->IoGetInitialStack);
 #endif // !VMP
@@ -951,7 +955,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context ExAcquireSpinLockShared\n",
             PatchGuardBlock->ExAcquireSpinLockShared);
 #endif // !VMP
@@ -962,7 +966,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context ExReleaseSpinLockShared\n",
             PatchGuardBlock->ExReleaseSpinLockShared);
 #endif // !VMP
@@ -993,7 +997,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context DbgPrint\n",
             PatchGuardBlock->DbgPrint);
 #endif // !VMP
@@ -1018,7 +1022,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context RtlCompareMemory\n",
             PatchGuardBlock->RtlCompareMemory);
 #endif // !VMP
@@ -1029,7 +1033,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context RtlRestoreContext\n",
             PatchGuardBlock->RtlRestoreContext);
 #endif // !VMP
@@ -1040,7 +1044,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context ExQueueWorkItem\n",
             PatchGuardBlock->ExQueueWorkItem);
 #endif // !VMP
@@ -1051,7 +1055,7 @@ InitializePatchGuardBlock(
             0);
 
 #ifndef VMP
-        DbgPrint(
+        Log(
             "Shark - < %p > PatchGuard clear context ExFreePool\n",
             PatchGuardBlock->ExFreePool);
 #endif // !VMP
@@ -1161,7 +1165,7 @@ SetNewEntryForEncryptedContext(
         sizeof(FieldBuffer));
 
 #ifndef VMP
-    DbgPrint(
+    Log(
         "Shark - set new entry for PatchGuard encrypted context\n");
 #endif // !VMP
 }
@@ -1189,10 +1193,6 @@ CompareEncryptedContextFields(
         if ((ULONG64)CompareFields == (ULONG64)PatchGuardBlock->CompareFields) {
             break;
         }
-        
-        if( MmIsAddressValid(CompareFields) == FALSE) {
-        	break;
-        }
 
         RorKey = CompareFields[3] ^ PatchGuardBlock->CompareFields[3];
 
@@ -1212,7 +1212,7 @@ CompareEncryptedContextFields(
                 PatchGuardContext = TargetPc - PG_FIRST_FIELD_OFFSET;
 
 #ifndef VMP
-                DbgPrint(
+                Log(
                     "Shark - < %p > found PatchGuard declassified context\n",
                     PatchGuardContext);
 #endif // !VMP
@@ -1264,11 +1264,11 @@ CompareEncryptedContextFields(
                         }
 
 #ifndef VMP
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > found PatchGuard encrypted context\n",
                             PatchGuardContext);
 
-                        DbgPrint(
+                        Log(
                             "Shark - < %p > first rorkey\n",
                             RorKey);
 #endif // !VMP
@@ -1294,6 +1294,7 @@ ClearSystemPtesEncryptedContext(
     __inout PPATCHGUARD_BLOCK PatchGuardBlock
 )
 {
+	KIRQL Irql;
     PFN_NUMBER Index = 0;
     PFN_NUMBER NumberOfPtes = 0;
     PMMPTE BasePte = NULL;
@@ -1348,6 +1349,20 @@ ClearSystemPtesEncryptedContext(
             ( MM_PTE_OWNER_MASK | MM_PTE_WRITE_THROUGH_MASK | MM_PTE_CACHE_DISABLE_MASK | \
                 MM_PTE_LARGE_PAGE_MASK | MM_PTE_COPY_ON_WRITE_MASK | MM_PTE_PROTOTYPE_MASK )
 
+
+	Irql = PatchGuardBlock->ExAcquireSpinLockShared( PatchGuardBlock->ExpLargePoolTableLock );
+
+	if ( PatchGuardBlock->BuildNumber < 9600 )
+	{
+		PatchGuardBlock->SystemPtes.BasePte = *(PMMPTE *)
+			((PCHAR)(PatchGuardBlock->SystemPtes.BitMap + 1) + sizeof( ULONG ) * 2);
+	}
+	else
+	{
+		PatchGuardBlock->SystemPtes.BasePte = *(PMMPTE *)
+			(PatchGuardBlock->SystemPtes.BitMap + 1);
+	}
+
     BaseVa = MiGetVirtualAddressMappedByPte(
         PatchGuardBlock->PteBase,
         PatchGuardBlock->SystemPtes.BasePte);
@@ -1357,57 +1372,72 @@ ClearSystemPtesEncryptedContext(
     NumberOfPtes =
         PatchGuardBlock->SystemPtes.BitMap->SizeOfBitMap * 8;
 
+
+
     for (Index = 0;
         Index < NumberOfPtes;
         Index++) {
         PointerPte = BasePte + Index;
         PointerVa = (PCHAR)BaseVa + PAGE_SIZE * Index;
 
-        if (FALSE != MmIsAddressValid(PointerVa)) {
-            if (FALSE != MI_IS_PTE_EXECUTABLE(PointerPte)) {
-                if (VALID_PTE_SET_BITS == (PointerPte->u.Long & VALID_PTE_SET_BITS)) {
-                    if (0 == (PointerPte->u.Long & VALID_PTE_UNSET_BITS)) {
-                        LastPte = PointerPte;
-                        LastVa = PointerVa;
+		if ( FALSE != MmIsAddressValid( PointerVa ) )
+		{
+			if ( FALSE != MI_IS_PTE_EXECUTABLE( PointerPte ) )
+			{
+				if ( VALID_PTE_SET_BITS == (PointerPte->u.Long & VALID_PTE_SET_BITS) )
+				{
+					if ( 0 == (PointerPte->u.Long & VALID_PTE_UNSET_BITS) )
+					{
+						LastPte = PointerPte;
+						LastVa = PointerVa;
 
-                        while (Index++) {
-                            PointerPte = BasePte + Index;
-                            PointerVa = (PCHAR)BaseVa + PAGE_SIZE * Index;
+						while ( Index++ )
+						{
+							PointerPte = BasePte + Index;
+							PointerVa = (PCHAR)BaseVa + PAGE_SIZE * Index;
 
-                            if (FALSE == MmIsAddressValid(PointerVa)) {
-                                break;
-                            }
+							if ( FALSE == MmIsAddressValid( PointerVa ) )
+							{
+								break;
+							}
 
-                            if (FALSE == MI_IS_PTE_EXECUTABLE(PointerPte)) {
-                                break;
-                            }
+							if ( FALSE == MI_IS_PTE_EXECUTABLE( PointerPte ) )
+							{
+								break;
+							}
 
-                            if (VALID_PTE_SET_BITS != (PointerPte->u.Long & VALID_PTE_SET_BITS)) {
-                                break;
-                            }
+							if ( VALID_PTE_SET_BITS != (PointerPte->u.Long & VALID_PTE_SET_BITS) )
+							{
+								break;
+							}
 
-                            if (0 != (PointerPte->u.Long & VALID_PTE_UNSET_BITS)) {
-                                break;
-                            }
+							if ( 0 != (PointerPte->u.Long & VALID_PTE_UNSET_BITS) )
+							{
+								break;
+							}
 
-                            if (PointerPte->u.Hard.PageFrameNumber !=
-                                (PointerPte - 1)->u.Hard.PageFrameNumber + 1) {
-                                LastPte = PointerPte;
-                                LastVa = PointerVa;
-                            }
-                        }
+							if ( PointerPte->u.Hard.PageFrameNumber !=
+								(PointerPte - 1)->u.Hard.PageFrameNumber + 1 )
+							{
+								LastPte = PointerPte;
+								LastVa = PointerVa;
+							}
+						}
 
-                        if ((PointerPte - LastPte) * PAGE_SIZE > PatchGuardBlock->SizeOfNtSection) {
-                            CompareEncryptedContextFields(
-                                PatchGuardBlock,
-                                LastVa,
-                                (PCHAR)PointerVa - PatchGuardBlock->SizeOfCmpAppendDllSection);
-                        }
-                    }
-                }
-            }
+						if ( (PointerPte - LastPte) * PAGE_SIZE > PatchGuardBlock->SizeOfNtSection )
+						{
+							CompareEncryptedContextFields(
+								PatchGuardBlock,
+								LastVa,
+								(PCHAR)PointerVa - PatchGuardBlock->SizeOfCmpAppendDllSection );
+						}
+					}
+				}
+			}
         }
     }
+
+	PatchGuardBlock->ExReleaseSpinLockShared( PatchGuardBlock->ExpLargePoolTableLock, Irql );
 }
 
 VOID
@@ -1437,14 +1467,25 @@ ClearPoolEncryptedContext(
                 PatchGuardBlock->PoolBigPageTable[Index].Va)) {
                 if (PatchGuardBlock->PoolBigPageTable[Index].NumberOfPages > PatchGuardBlock->SizeOfNtSection) {
                     CompareBegin = PatchGuardBlock->PoolBigPageTable[Index].Va;
-                    CompareEnd = (PCHAR)PatchGuardBlock->PoolBigPageTable[Index].Va +
-                        PatchGuardBlock->PoolBigPageTable[Index].NumberOfPages -
-                        PatchGuardBlock->SizeOfCmpAppendDllSection;
+					CompareEnd = (PCHAR)PatchGuardBlock->PoolBigPageTable[Index].Va +
+						PatchGuardBlock->PoolBigPageTable[Index].NumberOfPages -
+						PatchGuardBlock->SizeOfCmpAppendDllSection;
 
-                    CompareEncryptedContextFields(
-                        PatchGuardBlock,
-                        CompareBegin,
-                        CompareEnd);
+
+					if ( MmIsAddressValid( CompareBegin ) )
+					{
+						CompareEncryptedContextFields(
+							PatchGuardBlock,
+							CompareBegin,
+							CompareEnd );
+					}
+					else
+					{
+						Log( 
+							"BadPoolAddress:%p\r\n",
+							CompareBegin );
+					}
+
                 }
             }
         }
@@ -1500,8 +1541,20 @@ GetVirtualAddressRegion(
         }
     }
 
-    if (FALSE == Result) {
-        PatchGuardBlock->ExReleaseSpinLockShared(PatchGuardBlock->ExpLargePoolTableLock, Irql);
+	
+
+    if (FALSE == Result) 
+	{
+		if ( PatchGuardBlock->BuildNumber < 9600 )
+		{
+			PatchGuardBlock->SystemPtes.BasePte = *(PMMPTE *)
+				((PCHAR)(PatchGuardBlock->SystemPtes.BitMap + 1) + sizeof( ULONG ) * 2);
+		}
+		else
+		{
+			PatchGuardBlock->SystemPtes.BasePte = *(PMMPTE *)
+				(PatchGuardBlock->SystemPtes.BitMap + 1);
+		}
 
         BaseAddress = MiGetVirtualAddressMappedByPte(
             PatchGuardBlock->PteBase,
@@ -1518,55 +1571,68 @@ GetVirtualAddressRegion(
             PointerPte = BasePte + Index;
             PointerVa = (PCHAR)BaseVa + PAGE_SIZE * Index;
 
-            if (FALSE != MmIsAddressValid(PointerVa)) {
-                if (FALSE != MI_IS_PTE_EXECUTABLE(PointerPte)) {
-                    if (VALID_PTE_SET_BITS == (PointerPte->u.Long & VALID_PTE_SET_BITS)) {
-                        if (0 == (PointerPte->u.Long & VALID_PTE_UNSET_BITS)) {
-                            LastPte = PointerPte;
-                            LastVa = PointerVa;
+            if (FALSE != MmIsAddressValid(PointerVa) )
+			{
+				if ( FALSE != MI_IS_PTE_EXECUTABLE( PointerPte ) )
+				{
+					if ( VALID_PTE_SET_BITS == (PointerPte->u.Long & VALID_PTE_SET_BITS) )
+					{
+						if ( 0 == (PointerPte->u.Long & VALID_PTE_UNSET_BITS) )
+						{
+							LastPte = PointerPte;
+							LastVa = PointerVa;
 
-                            while (Index++) {
-                                PointerPte = BasePte + Index;
-                                PointerVa = (PCHAR)BaseAddress + PAGE_SIZE * Index;
+							while ( Index++ )
+							{
+								PointerPte = BasePte + Index;
+								PointerVa = (PCHAR)BaseAddress + PAGE_SIZE * Index;
 
-                                if (FALSE == MmIsAddressValid(PointerVa)) {
-                                    break;
-                                }
+								if ( FALSE == MmIsAddressValid( PointerVa ) )
+								{
+									break;
+								}
 
-                                if (FALSE == MI_IS_PTE_EXECUTABLE(PointerPte)) {
-                                    break;
-                                }
+								if ( FALSE == MI_IS_PTE_EXECUTABLE( PointerPte ) )
+								{
+									break;
+								}
 
-                                if (VALID_PTE_SET_BITS != (PointerPte->u.Long & VALID_PTE_SET_BITS)) {
-                                    break;
-                                }
+								if ( VALID_PTE_SET_BITS != (PointerPte->u.Long & VALID_PTE_SET_BITS) )
+								{
+									break;
+								}
 
-                                if (0 != (PointerPte->u.Long & VALID_PTE_UNSET_BITS)) {
-                                    break;
-                                }
+								if ( 0 != (PointerPte->u.Long & VALID_PTE_UNSET_BITS) )
+								{
+									break;
+								}
 
-                                if (PointerPte->u.Hard.PageFrameNumber !=
-                                    (PointerPte - 1)->u.Hard.PageFrameNumber + 1) {
-                                    LastPte = PointerPte;
-                                    LastVa = PointerVa;
-                                }
-                            }
+								if ( PointerPte->u.Hard.PageFrameNumber !=
+									(PointerPte - 1)->u.Hard.PageFrameNumber + 1 )
+								{
+									LastPte = PointerPte;
+									LastVa = PointerVa;
+								}
+							}
 
-                            if ((ULONG64)VirtualAddress >= (ULONG64)LastVa &&
-                                (ULONG64)VirtualAddress < (ULONG64)PointerVa) {
-                                *BaseAddress = LastVa;
-                                *RegionSize = (SIZE_T)((PCHAR)PointerVa - (PCHAR)LastVa);
+							if ( (ULONG64)VirtualAddress >= (ULONG64)LastVa &&
+								(ULONG64)VirtualAddress < (ULONG64)PointerVa )
+							{
+								*BaseAddress = LastVa;
+								*RegionSize = (SIZE_T)((PCHAR)PointerVa - (PCHAR)LastVa);
 
-                                Result = TRUE;
-                                break;
-                            }
-                        }
-                    }
-                }
+								Result = TRUE;
+								break;
+							}
+						}
+					}
+				}
             }
         }
     }
 
+	PatchGuardBlock->ExReleaseSpinLockShared( PatchGuardBlock->ExpLargePoolTableLock, Irql );
+	
     return Result;
 }
 
@@ -1607,7 +1673,7 @@ CheckWorkerThread(
 
             if (NULL != Callers[Count - 1].Establisher) {
 #ifndef VMP
-                DbgPrint(
+                Log(
                     "Shark - < %p > found noimage return address in worker thread\n",
                     Callers[Count - 1].Establisher);
 #endif // !VMP
@@ -1660,7 +1726,7 @@ CheckWorkerThread(
                             }
 
 #ifndef VMP
-                            DbgPrint("Shark - insert worker thread check function\n");
+                            Log("Shark - insert worker thread check function\n");
 #endif // !VMP
                         }
 
@@ -1814,12 +1880,58 @@ retry:
     }
 }
 
+/*
+* PrintIrql
+*
+* Purpose:
+*
+* Debug print current irql.
+*
+*/
+VOID PrintIrql( )
+{
+	KIRQL Irql;
+	PWSTR sIrql;
+
+	Irql = KeGetCurrentIrql( );
+
+	switch ( Irql )
+	{
+
+		case PASSIVE_LEVEL:
+			sIrql = L"PASSIVE_LEVEL";
+			break;
+		case APC_LEVEL:
+			sIrql = L"APC_LEVEL";
+			break;
+		case DISPATCH_LEVEL:
+			sIrql = L"DISPATCH_LEVEL";
+			break;
+		case CLOCK_LEVEL:
+			sIrql = L"CLOCK_LEVEL";
+			break;
+		case IPI_LEVEL:
+			sIrql = L"IPI_LEVEL";
+			break;
+		case HIGH_LEVEL:
+			sIrql = L"HIGH_LEVEL";
+			break;
+		default:
+			sIrql = L"Unknown Value";
+			break;
+	}
+	Log( "KeGetCurrentIrql=%u(%ws)\n", Irql, sIrql );
+}
+
+
 VOID
 NTAPI
 ClearPatchGuardWorker(
     __inout PPATCHGUARD_BLOCK PatchGuardBlock
 )
 {
+	PrintIrql( );
+
     ClearSystemPtesEncryptedContext(PatchGuardBlock);
     ClearPoolEncryptedContext(PatchGuardBlock);
     CheckAllWorkerThread(PatchGuardBlock);
@@ -1889,29 +2001,30 @@ DisablePatchGuard(
     if (NULL != PatchGuardBlock->PoolBigPageTable &&
         0 != PatchGuardBlock->PoolBigPageTableSize &&
         NULL != PatchGuardBlock->ExpLargePoolTableLock &&
-        0 != PatchGuardBlock->RvaOffsetOfEntry &&
-        0 != PatchGuardBlock->SizeOfCmpAppendDllSection &&
-        0 != PatchGuardBlock->SizeOfNtSection &&
-        NULL != PatchGuardBlock->MmDeterminePoolType) {
-        KeInitializeEvent(
-            &PatchGuardBlock->Notify,
-            SynchronizationEvent,
-            FALSE);
+		 0 != PatchGuardBlock->RvaOffsetOfEntry &&
+		 0 != PatchGuardBlock->SizeOfCmpAppendDllSection &&
+		 0 != PatchGuardBlock->SizeOfNtSection &&
+		 NULL != PatchGuardBlock->MmDeterminePoolType )
+	{
+		KeInitializeEvent(
+			&PatchGuardBlock->Notify,
+			SynchronizationEvent,
+			FALSE );
 
-        ExInitializeWorkItem(
-            &PatchGuardBlock->ClearWorkerItem,
-            ClearPatchGuardWorker,
-            PatchGuardBlock);
+		ExInitializeWorkItem(
+			&PatchGuardBlock->ClearWorkerItem,
+			ClearPatchGuardWorker,
+			PatchGuardBlock );
 
-        ExQueueWorkItem(
-            &PatchGuardBlock->ClearWorkerItem,
-            CriticalWorkQueue);
+		ExQueueWorkItem(
+			&PatchGuardBlock->ClearWorkerItem,
+			CriticalWorkQueue );
 
-        KeWaitForSingleObject(
-            &PatchGuardBlock->Notify,
-            Executive,
-            KernelMode,
-            FALSE,
-            NULL);
-    }
+		KeWaitForSingleObject(
+			&PatchGuardBlock->Notify,
+			Executive,
+			KernelMode,
+			FALSE,
+			NULL );
+	}
 }

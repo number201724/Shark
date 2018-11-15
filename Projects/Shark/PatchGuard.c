@@ -20,3 +20,21 @@
 
 #include "PatchGuard.h"
 
+void FuckPG( )
+{
+	PPATCHGUARD_BLOCK PatchGuardBlock = NULL;
+
+	PatchGuardBlock = ExAllocatePool(
+		NonPagedPool,
+		sizeof( PATCHGUARD_BLOCK ) );
+
+	if ( NULL != PatchGuardBlock )
+	{
+		RtlZeroMemory( PatchGuardBlock, sizeof( PATCHGUARD_BLOCK ) );
+
+		DisablePatchGuard( PatchGuardBlock );
+
+		// free must after PatchGuard context cleared
+		// ExFreePool(PatchGuardBlock);
+	}
+}

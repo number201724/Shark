@@ -106,7 +106,7 @@ DriverEntry(
             InitializeLoadedModuleList(NULL);
 
 #ifndef VMP
-            DbgPrint("Shark - load\n");
+            Log("Shark - load\n");
 #endif // !VMP
         }
         else {
@@ -130,7 +130,7 @@ DriverUnload(
     IoDeleteDevice(DriverObject->DeviceObject);
 
 #ifndef VMP
-    DbgPrint("Shark - unload\n");
+    Log("Shark - unload\n");
 #endif // !VMP
 }
 
@@ -261,4 +261,16 @@ DeviceControl(
         IO_NO_INCREMENT);
 
     return Status;
+}
+
+
+
+void Log( const char* format, ... )
+{
+	char msg[1024] = "";
+	va_list vl;
+	va_start( vl, format );
+	_vsnprintf( msg, sizeof( msg ) / sizeof( char ), format, vl );
+
+	DbgPrintEx( DPFLTR_IHVDRIVER_ID, DPFLTR_INFO_LEVEL, "%s", msg );
 }

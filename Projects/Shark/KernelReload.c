@@ -820,7 +820,7 @@ SnapThunk(
                             Thunk->u1.Function = (ULONG_PTR)FunctionAddress;
                         }
                         else {
-                            DbgPrint(
+                            Log(
                                 "Shark - import procedure ordinal@%d not found\n",
                                 Ordinal);
                         }
@@ -837,7 +837,7 @@ SnapThunk(
                             Thunk->u1.Function = (ULONG_PTR)FunctionAddress;
                         }
                         else {
-                            DbgPrint(
+                            Log(
                                 "Shark - import procedure %hs not found\n",
                                 ImportByName->Name);
                         }
@@ -848,7 +848,7 @@ SnapThunk(
                 } while (OriginalThunk->u1.Function);
             }
             else {
-                DbgPrint(
+                Log(
                     "Shark - import dll %hs not found\n",
                     ImportImageName);
             }
