@@ -16,9 +16,10 @@
 *
 */
 
-#include <Defs.h>
+#include <defs.h>
 
 #include "PatchGuard.h"
+
 
 void FuckPG( )
 {

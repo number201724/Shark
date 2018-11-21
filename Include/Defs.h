@@ -24,6 +24,10 @@
 extern "C" {
 #endif	/* __cplusplus */
 
+#ifndef VMP
+#define VMP
+#endif // !VMP
+
 #ifndef NTOS_KERNEL_RUNTIME
 #include <nt.h>
 #include <ntrtl.h>
@@ -43,6 +47,8 @@ extern "C" {
 #include <stdio.h>
 #include <stdlib.h>
 #include <tchar.h>
+
+	void Log( const char* format, ... );
 
 #ifdef __cplusplus
 }
