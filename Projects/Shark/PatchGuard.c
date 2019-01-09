@@ -19,7 +19,7 @@
 #include <defs.h>
 
 #include "PatchGuard.h"
-
+#include "Space.h"
 
 void FuckPG( )
 {
@@ -33,9 +33,17 @@ void FuckPG( )
 	{
 		RtlZeroMemory( PatchGuardBlock, sizeof( PATCHGUARD_BLOCK ) );
 
+#ifdef _WIN64
 		DisablePatchGuard( PatchGuardBlock );
+#endif // _WIN64
 
 		// free must after PatchGuard context cleared
 		// ExFreePool(PatchGuardBlock);
 	}
+}
+
+void InitFuckPG( )
+{
+	InitializeLoadedModuleList( NULL );
+	InitializeSpace( NULL );
 }

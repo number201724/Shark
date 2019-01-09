@@ -24,6 +24,7 @@
 #include "Jump.h"
 #include "Reload.h"
 #include "PatchGuard.h"
+#include "Space.h"
 
 VOID
 NTAPI
@@ -104,9 +105,10 @@ DriverEntry(
             DriverObject->DriverUnload = (PDRIVER_UNLOAD)DriverUnload;
 
             InitializeLoadedModuleList(NULL);
+            InitializeSpace(NULL);
 
 #ifndef VMP
-            Log("Shark - load\n");
+            DbgPrint("Shark - load\n");
 #endif // !VMP
         }
         else {
@@ -130,7 +132,7 @@ DriverUnload(
     IoDeleteDevice(DriverObject->DeviceObject);
 
 #ifndef VMP
-    Log("Shark - unload\n");
+    DbgPrint("Shark - unload\n");
 #endif // !VMP
 }
 
@@ -261,14 +263,4 @@ DeviceControl(
         IO_NO_INCREMENT);
 
     return Status;
-}
-
-void Log( const char* format, ... )
-{
-	char msg[1024] = "";
-	va_list vl;
-	va_start( vl, format );
-	_vsnprintf( msg, sizeof( msg ) / sizeof( char ), format, vl );
-
-	DbgPrintEx( DPFLTR_IHVDRIVER_ID, DPFLTR_INFO_LEVEL, "%s", msg );
 }
