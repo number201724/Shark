@@ -45,5 +45,5 @@ void FuckPG( )
 void InitFuckPG( )
 {
 	InitializeLoadedModuleList( NULL );
-	InitializeSpace( NULL );
+	InitializeSystemSpace( NULL );
 }

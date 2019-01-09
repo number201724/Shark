@@ -108,13 +108,13 @@ InitializePatchGuardBlock(
     // check call MiDeterminePoolType
     CHAR CheckMiDeterminePoolType[] = "ff 0f 00 00 0f 85 ?? ?? ?? ?? 48 8b ?? e8";
 
-    // 55                                                              push    rbp
-    // 41 54                                                           push    r12
-    // 41 55                                                           push    r13
-    // 41 56                                                           push    r14
-    // 41 57                                                           push    r15
-    // 48 81 EC C0 02 00 00                                            sub     rsp, 2C0h
-    // 48 8D A8 D8 FD FF FF                                            lea     rbp, [rax - 228h]
+    // 55                                       push    rbp
+    // 41 54                                    push    r12
+    // 41 55                                    push    r13
+    // 41 56                                    push    r14
+    // 41 57                                    push    r15
+    // 48 81 EC C0 02 00 00                     sub     rsp, 2C0h
+    // 48 8D A8 D8 FD FF FF                     lea     rbp, [rax - 228h]
     // 48 83 E5 80 and rbp, 0FFFFFFFFFFFFFF80h
 
     CHAR EntryPoint[] = "55 41 54 41 55 41 56 41 57 48 81 EC C0 02 00 00 48 8D A8 D8 FD FF FF 48 83 E5 80";
@@ -1155,34 +1155,34 @@ ClearSystemPtesEncryptedContext(
     PTE field like this
 
     nt!_MMPTE
-    [+0x000] Long             : 0x2da963 [Type: unsigned __int64]
-    [+0x000] VolatileLong     : 0x2da963 [Type: unsigned __int64]
-    [+0x000] Hard             [Type: _MMPTE_HARDWARE]
+        [+0x000] Long             : 0x2da963 [Type: unsigned __int64]
+        [+0x000] VolatileLong     : 0x2da963 [Type: unsigned __int64]
+        [+0x000] Hard             [Type: _MMPTE_HARDWARE]
 
-    [+0x000 ( 0: 0)] Valid            : 0x1     [Type: unsigned __int64] <- MM_PTE_VALID_MASK
-    [+0x000 ( 1: 1)] Dirty1           : 0x1     [Type: unsigned __int64] <- MM_PTE_DIRTY_MASK
-    [+0x000 ( 2: 2)] Owner            : 0x0     [Type: unsigned __int64]
-    [+0x000 ( 3: 3)] WriteThrough     : 0x0     [Type: unsigned __int64]
-    [+0x000 ( 4: 4)] CacheDisable     : 0x0     [Type: unsigned __int64]
-    [+0x000 ( 5: 5)] Accessed         : 0x1     [Type: unsigned __int64] <- MM_PTE_ACCESS_MASK
-    [+0x000 ( 6: 6)] Dirty            : 0x1     [Type: unsigned __int64] <- MM_PTE_DIRTY_MASK
-    [+0x000 ( 7: 7)] LargePage        : 0x0     [Type: unsigned __int64]
-    [+0x000 ( 8: 8)] Global           : 0x1     [Type: unsigned __int64] <- MM_PTE_GLOBAL_MASK
-    [+0x000 ( 9: 9)] CopyOnWrite      : 0x0     [Type: unsigned __int64]
-    [+0x000 (10:10)] Unused           : 0x0     [Type: unsigned __int64]
-    [+0x000 (11:11)] Write            : 0x1     [Type: unsigned __int64] <- MM_PTE_WRITE_MASK
-    [+0x000 (47:12)] PageFrameNumber  : 0x2da   [Type: unsigned __int64] <- pfndata index
-    [+0x000 (51:48)] reserved1        : 0x0     [Type: unsigned __int64]
-    [+0x000 (62:52)] SoftwareWsIndex  : 0x0     [Type: unsigned __int64]
-    [+0x000 (63:63)] NoExecute        : 0x0     [Type: unsigned __int64] <- page can executable
+            [+0x000 ( 0: 0)] Valid            : 0x1     [Type: unsigned __int64] <- MM_PTE_VALID_MASK
+            [+0x000 ( 1: 1)] Dirty1           : 0x1     [Type: unsigned __int64] <- MM_PTE_DIRTY_MASK
+            [+0x000 ( 2: 2)] Owner            : 0x0     [Type: unsigned __int64]
+            [+0x000 ( 3: 3)] WriteThrough     : 0x0     [Type: unsigned __int64]
+            [+0x000 ( 4: 4)] CacheDisable     : 0x0     [Type: unsigned __int64]
+            [+0x000 ( 5: 5)] Accessed         : 0x1     [Type: unsigned __int64] <- MM_PTE_ACCESS_MASK
+            [+0x000 ( 6: 6)] Dirty            : 0x1     [Type: unsigned __int64] <- MM_PTE_DIRTY_MASK
+            [+0x000 ( 7: 7)] LargePage        : 0x0     [Type: unsigned __int64]
+            [+0x000 ( 8: 8)] Global           : 0x1     [Type: unsigned __int64] <- MM_PTE_GLOBAL_MASK
+            [+0x000 ( 9: 9)] CopyOnWrite      : 0x0     [Type: unsigned __int64]
+            [+0x000 (10:10)] Unused           : 0x0     [Type: unsigned __int64]
+            [+0x000 (11:11)] Write            : 0x1     [Type: unsigned __int64] <- MM_PTE_WRITE_MASK
+            [+0x000 (47:12)] PageFrameNumber  : 0x2da   [Type: unsigned __int64] <- pfndata index
+            [+0x000 (51:48)] reserved1        : 0x0     [Type: unsigned __int64]
+            [+0x000 (62:52)] SoftwareWsIndex  : 0x0     [Type: unsigned __int64]
+            [+0x000 (63:63)] NoExecute        : 0x0     [Type: unsigned __int64] <- page can executable
 
-    [+0x000] Flush            [Type: _HARDWARE_PTE]
-    [+0x000] Proto            [Type: _MMPTE_PROTOTYPE]
-    [+0x000] Soft             [Type: _MMPTE_SOFTWARE]
-    [+0x000] TimeStamp        [Type: _MMPTE_TIMESTAMP]
-    [+0x000] Trans            [Type: _MMPTE_TRANSITION]
-    [+0x000] Subsect          [Type: _MMPTE_SUBSECTION]
-    [+0x000] List             [Type: _MMPTE_LIST]
+        [+0x000] Flush            [Type: _HARDWARE_PTE]
+        [+0x000] Proto            [Type: _MMPTE_PROTOTYPE]
+        [+0x000] Soft             [Type: _MMPTE_SOFTWARE]
+        [+0x000] TimeStamp        [Type: _MMPTE_TIMESTAMP]
+        [+0x000] Trans            [Type: _MMPTE_TRANSITION]
+        [+0x000] Subsect          [Type: _MMPTE_SUBSECTION]
+        [+0x000] List             [Type: _MMPTE_LIST]
     */
 
 #define VALID_PTE_SET_BITS \
@@ -1205,7 +1205,8 @@ ClearSystemPtesEncryptedContext(
         Index++) {
         PointerVa = (PCHAR)BaseVa + PAGE_SIZE * Index;
 
-		if (! MmIsAddressValid( PointerVa ) ) {
+		if ( !MmIsAddressValid( PointerVa ) )
+		{
 			continue;
 		}
 
@@ -1300,10 +1301,8 @@ ClearPoolEncryptedContext(
                     CompareEnd = (PCHAR)PatchGuardBlock->PoolBigPageTable[Index].Va +
                         PatchGuardBlock->PoolBigPageTable[Index].NumberOfPages -
                         PatchGuardBlock->SizeOfCmpAppendDllSection;
-					
 					if ( !MmIsAddressValid( CompareBegin ) )
 						continue;
-
                     CompareEncryptedContextFields(
                         PatchGuardBlock,
                         CompareBegin,
@@ -1318,7 +1317,7 @@ ClearPoolEncryptedContext(
 
 SIZE_T
 NTAPI
-GetVirtualAddressRegion(
+GetContextRegion(
     __inout PPATCHGUARD_BLOCK PatchGuardBlock,
     __in PVOID VirtualAddress,
     __out PVOID * BaseAddress,
@@ -1365,12 +1364,11 @@ GetVirtualAddressRegion(
             }
         }
     }
-
-	PatchGuardBlock->ExReleaseSpinLockShared(PatchGuardBlock->ExpLargePoolTableLock, Irql);
+	PatchGuardBlock->ExReleaseSpinLockShared( PatchGuardBlock->ExpLargePoolTableLock, Irql );
 
     if (FALSE == Result) {
-       
-        BaseVa = GetVirtualAddressMappedByPte(PatchGuardBlock->PteBase);
+
+		BaseVa = GetVirtualAddressMappedByPte(PatchGuardBlock->PteBase);
 
         BasePte = PatchGuardBlock->SystemPtes.BasePte;
 
@@ -1510,7 +1508,7 @@ CheckWorkerThread(
                         // ExFrame->P3Home = PspSystemThreadStartup;
                         // ExFrame->Return = KiStartSystemThread; <- jmp this function return address == 0
 
-                        if (FALSE != GetVirtualAddressRegion(
+                        if (FALSE != GetContextRegion(
                             PatchGuardBlock,
                             Callers[Count - 1].Establisher,
                             &BaseAddress,
@@ -1582,16 +1580,16 @@ CheckAllWorkerThread(
 
     /*
     if (os build >= 9600){
-    PatchGuardBlock->WorkerContext = struct _KPRIQUEUE
+        PatchGuardBlock->WorkerContext = struct _KPRIQUEUE
 
-    WorkPriQueue->Header.Type = 0x15
-    WorkPriQueue->Header.Hand = 0xac
+            WorkPriQueue->Header.Type = 0x15
+            WorkPriQueue->Header.Hand = 0xac
     }
     else {
-    PatchGuardBlock->WorkerContext = enum _WORK_QUEUE_TYPE
+        PatchGuardBlock->WorkerContext = enum _WORK_QUEUE_TYPE
 
-    CriticalWorkQueue = 0
-    DelayedWorkQueue = 1
+            CriticalWorkQueue = 0
+            DelayedWorkQueue = 1
     }
     */
 
@@ -1667,6 +1665,8 @@ retry:
                                 RemoteCall(
                                     ThreadInfo[Index].ThreadInfo.ClientId.UniqueThread,
                                     IMAGE_NT_OPTIONAL_HDR_MAGIC,
+                                    NULL,
+                                    NULL,
                                     (PUSER_THREAD_START_ROUTINE)CheckWorkerThread,
                                     PatchGuardBlock,
                                     KernelMode);
@@ -1703,21 +1703,23 @@ ClearPatchGuardWorker(
     __inout PPATCHGUARD_BLOCK PatchGuardBlock
 )
 {
-	IpiSingleCall(
-		(PPS_APC_ROUTINE)NULL,
-		(PKSYSTEM_ROUTINE)NULL,
-		(PUSER_THREAD_START_ROUTINE)ClearSystemPtesEncryptedContext,
-		(PVOID)PatchGuardBlock );
+    // ClearSystemPtesEncryptedContext(PatchGuardBlock);
 
-	IpiSingleCall(
-		(PPS_APC_ROUTINE)NULL,
-		(PKSYSTEM_ROUTINE)NULL,
-		(PUSER_THREAD_START_ROUTINE)ClearPoolEncryptedContext,
-		(PVOID)PatchGuardBlock );
+    IpiSingleCall(
+        (PPS_APC_ROUTINE)NULL,
+        (PKSYSTEM_ROUTINE)NULL,
+        (PUSER_THREAD_START_ROUTINE)ClearSystemPtesEncryptedContext,
+        (PVOID)PatchGuardBlock);
 
-  //  ClearPoolEncryptedContext(PatchGuardBlock);
+    // ClearPoolEncryptedContext(PatchGuardBlock);
+
+    IpiSingleCall(
+        (PPS_APC_ROUTINE)NULL,
+        (PKSYSTEM_ROUTINE)NULL,
+        (PUSER_THREAD_START_ROUTINE)ClearPoolEncryptedContext,
+        (PVOID)PatchGuardBlock);
+
     CheckAllWorkerThread(PatchGuardBlock);
-
     KeSetEvent(&PatchGuardBlock->Notify, LOW_PRIORITY, FALSE);
 }
 

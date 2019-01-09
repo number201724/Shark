@@ -25,7 +25,7 @@ extern "C" {
 #endif	/* __cplusplus */
 
 #ifndef PUBLIC
-    // #define PUBLIC
+    #define PUBLIC
 #endif // !PUBLIC
 
 #ifndef NTOS_KERNEL_RUNTIME
